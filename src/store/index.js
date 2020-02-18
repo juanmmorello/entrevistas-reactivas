@@ -5,13 +5,25 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    jwtToken: ""
+    jwtToken: "",
+    username: ""
   },
   mutations: {
     setJwtToken(state, token) {
       state.jwtToken = token;
+    },
+    setUsername(state, username) {
+      state.username = username;
     }
   },
   actions: {},
-  modules: {}
+  modules: {},
+  getters: {
+    username: state => {
+      return state.username;
+    },
+    jwtToken: state => {
+      return state.jwtToken;
+    }
+  }
 });

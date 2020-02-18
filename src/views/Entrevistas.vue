@@ -2,7 +2,7 @@
   <div>
     <Navbar />
     <div class="container">
-      <h1>Bienvenido devuelta!</h1>
+      <h1>Bienvenido devuelta {{ username }} !</h1>
     </div>
   </div>
 </template>
@@ -13,6 +13,14 @@ export default {
   name: "Home",
   components: {
     Navbar
+  },
+  data() {
+    return {
+      username: ""
+    };
+  },
+  mounted() {
+    this.username = this.$store.getters.username.username;
   }
 };
 </script>

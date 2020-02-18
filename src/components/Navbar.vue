@@ -26,6 +26,11 @@
               <router-link to="/entrevistas" exact>Entrevistas</router-link>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <router-link to="/admin" exact>Admin</router-link>
+            </a>
+          </li>
         </ul>
         <div class="my-2 my-lg-0">
           <LoginButton />

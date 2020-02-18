@@ -5,7 +5,7 @@
       type="button"
       class="btn btn-primary"
       data-toggle="modal"
-      data-target="#exampleModalCenter"
+      data-target="#LoginModal"
     >
       Login / Register
     </button>
@@ -13,7 +13,7 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModalCenter"
+      id="LoginModal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalCenterTitle"
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import $ from "jquery";
 export default {
   data() {
     return {
@@ -95,9 +96,11 @@ export default {
         })
         .then(res => {
           const token = this.$jwtDecode.decode(res.data.token);
-          this.$store.commit("setJwtToken", { token });
           this.username = token.sub;
-          console.log(this.username);
+          this.$store.commit("setJwtToken", { token });
+          this.$store.commit("setUsername", { username });
+          $("#LoginModal").modal("hide");
+          this.$router.push({ path: "/entrevistas" });
         })
         .catch(err => console.log(err));
     }
