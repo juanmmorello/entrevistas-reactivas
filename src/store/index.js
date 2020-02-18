@@ -4,8 +4,14 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    jwtToken: ""
+  },
+  mutations: {
+    setJwtToken(state, token) {
+      state.jwtToken = token;
+    }
+  },
   actions: {},
   modules: {}
 });
