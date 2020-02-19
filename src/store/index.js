@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     jwtToken: "",
-    username: ""
+    username: "",
+    roles: []
   },
   mutations: {
     setJwtToken(state, token) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     setUsername(state, username) {
       state.username = username;
+    },
+    setRoles(state, roles) {
+      state.roles = roles["roles"];
     }
   },
   actions: {},
@@ -24,6 +28,9 @@ export default new Vuex.Store({
     },
     jwtToken: state => {
       return state.jwtToken;
+    },
+    roles: state => {
+      return state.roles;
     }
   }
 });

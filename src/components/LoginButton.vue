@@ -7,7 +7,7 @@
       data-toggle="modal"
       data-target="#LoginModal"
     >
-      Login / Register
+      Login
     </button>
 
     <!-- Modal -->
@@ -96,9 +96,11 @@ export default {
         })
         .then(res => {
           const token = this.$jwtDecode.decode(res.data.token);
+          const roles = token.role;
           this.username = token.sub;
           this.$store.commit("setJwtToken", { token });
           this.$store.commit("setUsername", { username });
+          this.$store.commit("setRoles", { roles });
           $("#LoginModal").modal("hide");
           this.$router.push({ path: "/entrevistas" });
         })
